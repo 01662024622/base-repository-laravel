@@ -2,9 +2,9 @@
 namespace DummyNamespace;
 
 use Repository\Repository\AbstractRepository;
-use App\Repositories\DummyClass;
+use App\Repositories\{{ NamespaceInterface }};
 
-class DummyClassImpl extends AbstractRepository implements DummyClass
+class {{ class }} extends AbstractRepository implements {{ interface }}
 {
     //
 }

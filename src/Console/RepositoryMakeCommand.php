@@ -39,7 +39,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     protected function createRepositoryClass()
     {
         $this->call('make:repositoryOnly', [
-            'name' => "{$this->argument('name')}",
+            'name' => "{$this->argument('name')}Impl",
         ]);
     }
 
@@ -59,6 +59,7 @@ class RepositoryMakeCommand extends GeneratorCommand
     {
         return __DIR__.'/stubs/repositoryInterface.stub';
     }
+
 
     /**
      * Get the default namespace for the class.

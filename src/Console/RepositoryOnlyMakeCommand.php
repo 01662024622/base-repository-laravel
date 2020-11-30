@@ -51,6 +51,14 @@ class RepositoryOnlyMakeCommand extends GeneratorCommand
         return __DIR__ . '/stubs/repository.stub';
     }
 
+    protected function replaceClass($stub, $name)
+    {
+        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $interface=str_replace('Impl', '', $class);
+        $stub=str_replace(['DummyInterface','{{ interface }}','{{interface}}'], $interface, $stub);
+        $stub=str_replace(['NamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $this->argument('name'), $stub);
+        return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);
+    }
     /**
      * Get the default namespace for the class.
      *
