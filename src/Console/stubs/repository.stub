@@ -1,0 +1,10 @@
+<?php
+namespace DummyNamespace;
+
+use Repository\Repository\AbstractRepository;
+use App\Repositories\DummyClass;
+
+class DummyClassImpl extends AbstractRepository implements DummyClass
+{
+    //
+}
