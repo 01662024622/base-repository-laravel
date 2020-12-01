@@ -1,13 +1,11 @@
 <?php
-
-
 namespace Repository\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
-class ServiceOnlyMakeCommand
+class ServiceOnlyMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.

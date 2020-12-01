@@ -5,7 +5,7 @@ use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 
-class ServiceMakeCommand
+class ServiceMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
