@@ -68,7 +68,7 @@ class RepositoryOnlyMakeCommand extends GeneratorCommand
         $stub=str_replace(['DummyNamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $namespaceInterface, $stub);
 
         // add entity
-        $stub=str_replace(['Entity','{{ entity }}','{{entity}}'], $entity, $stub);
+        $stub=str_replace(['DummyEntity','{{ entity }}','{{entity}}'], $entity, $stub);
         $stub=str_replace(['DummyNamespaceEntity','{{ namespaceEntity }}','{{namespaceEntity}}'], $namespaceEntity, $stub);
 
         return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);

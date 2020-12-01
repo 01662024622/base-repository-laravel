@@ -67,7 +67,7 @@ class ServiceOnlyMakeCommand extends GeneratorCommand
         $stub=str_replace(['DummyNamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $namespace, $stub);
 
         // add repository
-        $stub=str_replace(['Repository','{{ repository }}','{{repository}}'], $repository, $stub);
+        $stub=str_replace(['DummyRepository','{{ repository }}','{{repository}}'], $repository, $stub);
         $stub=str_replace(['DummyNamespaceRepository','{{ NamespaceRepository }}','{{NamespaceRepository}}'], $repositoryNamespace, $stub);
         return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);
     }
