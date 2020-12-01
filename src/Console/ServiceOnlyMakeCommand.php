@@ -53,12 +53,22 @@ class ServiceOnlyMakeCommand extends GeneratorCommand
     protected function replaceClass($stub, $name)
     {
         $class = str_replace($this->getNamespace($name).'\\', '', $name);
+
+        // create interface infor
         $interface=str_replace('Impl', '', $class);
-        $repository=str_replace('Service', '', $interface)."Repository";
         $namespace=str_replace('Impl', '', $this->argument('name'));
+
+        // create repository infor
+        $repository=str_replace('ServiceImpl', '', $class)."Repository";
+        $repositoryNamespace=str_replace('ServiceImpl', '', $this->argument('name'));
+
+        // add interface
         $stub=str_replace(['DummyInterface','{{ interface }}','{{interface}}'], $interface, $stub);
         $stub=str_replace(['DummyNamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $namespace, $stub);
+
+        // add repository
         $stub=str_replace(['Repository','{{ repository }}','{{repository}}'], $repository, $stub);
+        $stub=str_replace(['DummyNamespaceRepository','{{ NamespaceRepository }}','{{NamespaceRepository}}'], $repositoryNamespace, $stub);
         return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);
     }
     /**

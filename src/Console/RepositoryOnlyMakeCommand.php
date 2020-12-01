@@ -54,12 +54,23 @@ class RepositoryOnlyMakeCommand extends GeneratorCommand
     protected function replaceClass($stub, $name)
     {
         $class = str_replace($this->getNamespace($name).'\\', '', $name);
+
+        // create infor interface
         $interface=str_replace('Impl', '', $class);
-        $entity=str_replace('Repository', '', $class);
-        $namespace=str_replace('Impl', '', $this->argument('name'));
+        $namespaceInterface=str_replace('Impl', '', $this->argument('name'));
+
+        // create infor entity
+        $entity=str_replace('RepositoryImpl', '', $class);
+        $namespaceEntity=str_replace('RepositoryImpl', '', $this->argument('name'));
+
+        // add interface
         $stub=str_replace(['DummyInterface','{{ interface }}','{{interface}}'], $interface, $stub);
-        $stub=str_replace(['DummyNamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $namespace, $stub);
+        $stub=str_replace(['DummyNamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $namespaceInterface, $stub);
+
+        // add entity
         $stub=str_replace(['Entity','{{ entity }}','{{entity}}'], $entity, $stub);
+        $stub=str_replace(['DummyNamespaceEntity','{{ namespaceEntity }}','{{namespaceEntity}}'], $namespaceEntity, $stub);
+
         return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);
     }
     /**

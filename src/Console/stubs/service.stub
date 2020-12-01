@@ -3,6 +3,7 @@ namespace DummyNamespace;
 
 use App\Services\AbstractService;
 use App\Services\{{ NamespaceInterface }};
+use App\Services\{{ NamespaceRepository }};
 
 class {{ class }} extends AbstractService implements {{ interface }}
 {
