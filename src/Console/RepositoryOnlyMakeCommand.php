@@ -55,8 +55,9 @@ class RepositoryOnlyMakeCommand extends GeneratorCommand
     {
         $class = str_replace($this->getNamespace($name).'\\', '', $name);
         $interface=str_replace('Impl', '', $class);
+        $namespace=str_replace('Impl', '', $this->argument('name'));
         $stub=str_replace(['DummyInterface','{{ interface }}','{{interface}}'], $interface, $stub);
-        $stub=str_replace(['NamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $this->argument('name'), $stub);
+        $stub=str_replace(['DummyNamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $namespace, $stub);
         return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);
     }
     /**
