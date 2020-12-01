@@ -6,7 +6,8 @@
         "repository",
         "repository pattern",
         "eloquent",
-        "repositories"
+        "repositories",
+        "service"
     ],
     "license": "BSD-2-Clause",
     "authors": [
