@@ -60,7 +60,7 @@ class ServiceOnlyMakeCommand extends GeneratorCommand
 
         // create repository infor
         $repository=str_replace('ServiceImpl', '', $class)."Repository";
-        $repositoryNamespace=str_replace('ServiceImpl', '', $this->argument('name'));
+        $repositoryNamespace=str_replace('ServiceImpl', '', $this->argument('name'))."Repository";
 
         // add interface
         $stub=str_replace(['DummyInterface','{{ interface }}','{{interface}}'], $interface, $stub);
