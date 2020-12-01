@@ -45,7 +45,7 @@ class FullControllMakeCommand extends GeneratorCommand
             'name' => "{$this->argument('name')}Service",
         ]);
         $this->call('make:model', [
-            'name' => "Models\{$this->argument('name')}",
+            'name' => "Models\\{$this->argument('name')}",
         ]);
         $this->call('make:controller', [
             'name' => "{$this->argument('name')}Controller",
