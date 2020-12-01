@@ -3,7 +3,7 @@ namespace DummyNamespace;
 
 use App\Repositories\AbstractRepository;
 use App\Repositories\{{ NamespaceInterface }};
-use App\Models\{{ namespaceEntity }};
+use App\Models\{{ NamespaceEntity }};
 
 class {{ class }} extends AbstractRepository implements {{ interface }}
 {
