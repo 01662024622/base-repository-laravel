@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use Repository\Repository\Contracts\RepositoryInterface;
+use App\Repositories\RepositoryInterface;
 
 interface DummyClass extends RepositoryInterface
 {

@@ -1,33 +1,34 @@
 <?php
 
+
 namespace Repository\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
-class RepositoryOnlyMakeCommand extends GeneratorCommand
+class ServiceOnlyMakeCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'make:repositoryOnly';
+    protected $name = 'make:serviceOnly';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new only class for Repository class';
+    protected $description = 'Create a new only class for Service class';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'RepositoryClass';
+    protected $type = 'ServiceClass';
 
     /**
      * Execute the console command.
@@ -48,18 +49,18 @@ class RepositoryOnlyMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/stubs/repository.stub';
+        return __DIR__ . '/stubs/service.stub';
     }
 
     protected function replaceClass($stub, $name)
     {
         $class = str_replace($this->getNamespace($name).'\\', '', $name);
         $interface=str_replace('Impl', '', $class);
-        $entity=str_replace('Repository', '', $class);
+        $repository=str_replace('Service', '', $interface)."Repository";
         $namespace=str_replace('Impl', '', $this->argument('name'));
         $stub=str_replace(['DummyInterface','{{ interface }}','{{interface}}'], $interface, $stub);
         $stub=str_replace(['DummyNamespaceInterface','{{ NamespaceInterface }}','{{NamespaceInterface}}'], $namespace, $stub);
-        $stub=str_replace(['Entity','{{ entity }}','{{entity}}'], $entity, $stub);
+        $stub=str_replace(['Repository','{{ repository }}','{{repository}}'], $repository, $stub);
         return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);
     }
     /**
@@ -70,7 +71,7 @@ class RepositoryOnlyMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Repositories\Impl';
+        return $rootNamespace . '\Services\Impl';
     }
 
     /**
@@ -81,7 +82,7 @@ class RepositoryOnlyMakeCommand extends GeneratorCommand
     protected function getOptions()
     {
         return [
-            ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the repository already exists.'],
+            ['force', 'f', InputOption::VALUE_NONE, 'Create the class even if the service already exists.'],
         ];
     }
 }
